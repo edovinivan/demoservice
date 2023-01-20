@@ -1,0 +1,28 @@
+server:
+  port: ${SERVER_PORT:8086}
+
+keycloak:
+  enabled: false
+
+spring:
+  datasource:
+    username: dev
+    password: admin
+    url: jdbc:postgresql://127.0.0.1:5444/demoservice
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: true
+
+org:
+  keycloak:
+    url:
+      base: ${KEYCLOAK_URL:http://localhost:8180}
+      login: /realms/${REALM:kc-auth-realm}/protocol/openid-connect/token
+    auth:
+      user: userservice
+      password: 123
+      client_id: ks-auth-client
+
+
