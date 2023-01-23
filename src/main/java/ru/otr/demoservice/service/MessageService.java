@@ -17,7 +17,11 @@ public class MessageService {
     public Message save(Message message){
         return messageRepository.save(message);
     }
-    public List<Message> list(){
-        return messageRepository.findAll(Sort.by("datewrite"));
+    public List<Message> listAll(){
+        return messageRepository.findAll(Sort.by("id"));
+    }
+
+    public List<Message> listByUsers(String idKeycloak){
+        return messageRepository.findAllByUsers_Idkeycloak(idKeycloak);
     }
 }

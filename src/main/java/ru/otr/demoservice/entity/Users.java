@@ -16,4 +16,7 @@ public class Users implements Serializable {
 
     @Column(name = "NAME")
     String name;
+
+    @Column(name = "idkeycloak")
+    String idkeycloak;
 }
