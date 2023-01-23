@@ -38,6 +38,7 @@ public class MessageMapper {
         message.setText(messageDto.getText());
         message.setTypeMessage(TypeMessage.QUERY);
         message.setDatewrite(LocalDateTime.now());
+        message.setQuery(null);
         return message;
     }
 }

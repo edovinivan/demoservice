@@ -30,7 +30,7 @@ public class MessageController {
 
     @PostMapping(value = "/message", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
     public String add(MessageDto messageDto){
-        messageService.save(messageMapper.map(messageDto));
+        messageService.saveQuery(messageMapper.map(messageDto));
         return "redirect:message";
     }
 }

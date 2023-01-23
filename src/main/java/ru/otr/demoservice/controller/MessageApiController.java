@@ -33,6 +33,6 @@ public class MessageApiController {
 
     @PostMapping(value = "/message", consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Message> message(@RequestBody MessageDto messageDto){
-        return ResponseEntity.ok(messageService.save(messageMapper.map(messageDto)));
+        return ResponseEntity.ok(messageService.saveQuery(messageMapper.map(messageDto)));
     }
 }

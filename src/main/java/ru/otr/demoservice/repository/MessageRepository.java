@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Long> {
-    List<Message> findAllByUsers_Idkeycloak(String idKeycloak);
+    List<Message> findAll();
 }

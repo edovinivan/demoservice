@@ -15,7 +15,7 @@ public class Message implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name = "TEXT")
+    @Column(name = "TEXT", columnDefinition = "TEXT")
     String text;
 
     @ManyToOne
@@ -28,4 +28,8 @@ public class Message implements Serializable {
     @Column(name = "TYPEMESSAGE")
     @Enumerated(EnumType.STRING)
     TypeMessage typeMessage;
+
+    @ManyToOne
+    @JoinColumn(name = "QUERY")
+    Message query;
 }
