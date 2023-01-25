@@ -1,9 +1,0 @@
-{
-  "realm": "kc-auth-realm",
-  "auth-server-url": "http://localhost:8180/",
-  "ssl-required": "external",
-  "resource": "ks-auth-client",
-  "public-client": true,
-  "confidential-port": 0,
-  "principal-attribute": "name"
-}

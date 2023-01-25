@@ -2,27 +2,36 @@ server:
   port: ${SERVER_PORT:8086}
 
 keycloak:
-  enabled: false
+  #enabled: false
+  #configurationFile: ${KEYCLOAK_JSON_PATH:file:src/main/resources/keycloak.json}
+  realm: kc-auth-realm
+  #auth-server-url: http://localhost:8180/
+  #auth-server-url: http://172.18.0.3:8180/
+  auth-server-url: http://localhost:8180/
+  ssl-required: external
+  #ssl-required: none
+  resource: ks-auth-client
+  #public-client: true,
+  #confidential-port: 0,
+  principal-attribute: "name"
+  bearer-only: true
+  public-client: true
+  confidential-port: 0
+  use-resource-role-mappings": false
+  cors: true
+
 
 spring:
   datasource:
     username: dev
     password: admin
-    url: jdbc:postgresql://127.0.0.1:5444/demoservice
+    #url: jdbc:postgresql://postgres_blog:5432/demoservice
+    url: jdbc:postgresql://localhost:5444/demoservice
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: false
     open-in-view: true
 
-org:
-  keycloak:
-    url:
-      base: ${KEYCLOAK_URL:http://localhost:8180}
-      login: /realms/${REALM:kc-auth-realm}/protocol/openid-connect/token
-    auth:
-      user: userservice
-      password: 123
-      client_id: ks-auth-client
 
 

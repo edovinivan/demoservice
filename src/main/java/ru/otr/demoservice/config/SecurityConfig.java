@@ -30,9 +30,10 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
     /*TODO порешать фигню с yml и json файлом*/
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
-        http.addFilter(corsFilter().getFilter()).csrf().ignoringAntMatchers("/api/*","/message/*").and()
+        http.addFilter(corsFilter().getFilter()).csrf().ignoringAntMatchers("/api/*","/message/*", "/api2/*").and()
                 .authorizeRequests()
-                .antMatchers("/api/*", "/message/*").authenticated();
+                .antMatchers("/api/*", "/message/*").authenticated()
+                .antMatchers("/api2/*").permitAll();
     }
 
     @Bean
