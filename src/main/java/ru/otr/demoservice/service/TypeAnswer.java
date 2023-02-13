@@ -14,6 +14,7 @@ public class TypeAnswer {
 
     public String getAnswer(){
         Random random = new Random(new Date().getTime());
+      
         return listAnswer.get(random.nextInt(listAnswer.size()));
     }
 }

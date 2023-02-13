@@ -1,35 +1,31 @@
 server:
-  port: ${SERVER_PORT:8086}
+  port: ${SERVER_PORT:8020}
 
 keycloak:
-  #enabled: false
-  #configurationFile: ${KEYCLOAK_JSON_PATH:file:src/main/resources/keycloak.json}
-  realm: kc-auth-realm
-  #auth-server-url: http://localhost:8180/
-  #auth-server-url: http://172.18.0.3:8180/
-  auth-server-url: http://localhost:8180/
-  ssl-required: external
-  #ssl-required: none
-  resource: ks-auth-client
-  #public-client: true,
-  #confidential-port: 0,
-  principal-attribute: "name"
-  bearer-only: true
-  public-client: true
-  confidential-port: 0
-  use-resource-role-mappings": false
-  cors: true
+  enabled: false
+  configurationFile: ${KEYCLOAK_JSON_PATH:file:src/main/resources/keycloak.json}
+#  realm: kc-auth-realm
+#  auth-server-url: http://auth-service:8180/
+#  ssl-required: external
+#  resource: ks-auth-client
+#  principal-attribute: name
+#  bearer-only: true
+#  public-client: true
+#  confidential-port: 0
+#  use-resource-role-mappings": false
+#  cors: true
+#  realm-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0JubWuXEnCAJ1rLRiML2K8D5IPRwtovCp32V+kOt9OkIYyy4Qyc7+E/uV6wNBBcIviFDMj1UjQg8ezD83soAH726/oUyY5WpEOs1j8SI7bn6WCZIeLtopu9xHIxjigL3YPZ19Rl7IYDEvgb1zrPy34HwhYyTBy+P3FpXMw9lAZeCSxTG2ZLL46ZYPXnDjMTpF2xUMBg5IwVpRpHBZhkuGVEylOemxBB5w6agd1eJeapMLoeLw5m+FOR/7MPTazWzD5U8vWpj4oZs1JDex6ZGPj2osKrOk2XBqFvIOYIzJ7p0VJoK0z2r9lkJ7ebmdwMVp58Rw994qmbknGhLjQQfGQIDAQAB
 
 
 spring:
   datasource:
     username: dev
     password: admin
-    #url: jdbc:postgresql://postgres_blog:5432/demoservice
-    url: jdbc:postgresql://localhost:5444/demoservice
+    #url: jdbc:postgresql://postgres:5432/app
+    url: jdbc:postgresql://localhost:5444/app
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: false
     open-in-view: true
 

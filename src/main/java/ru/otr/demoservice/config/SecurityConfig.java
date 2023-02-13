@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.authority.mapping.SimpleAuthorityMapper;
@@ -30,10 +31,20 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
     /*TODO порешать фигню с yml и json файлом*/
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
-        http.addFilter(corsFilter().getFilter()).csrf().ignoringAntMatchers("/api/*","/message/*", "/api2/*").and()
+        http.addFilter(corsFilter().getFilter())
+                .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/api/*", "/message/*").authenticated()
-                .antMatchers("/api2/*").permitAll();
+                .antMatchers("/api2/*", "/app/*" ).permitAll();
+
+//        http.addFilter(corsFilter().getFilter())
+//                .csrf().disable()
+//                .authorizeRequests()
+//                .antMatchers(HttpMethod.POST, "/api/*").authenticated()
+//                .antMatchers(HttpMethod.GET, "/api/*", "/message/**").authenticated()
+//                //.antMatchers("/api/*").fullyAuthenticated()
+//                .anyRequest().permitAll();
+////                .antMatchers("/auth/*").permitAll();
     }
 
     @Bean

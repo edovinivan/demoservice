@@ -9,10 +9,10 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class SecurityConfigDemoService {
-    @Bean
-    public KeycloakConfigResolver KeycloakConfigResolver() {
-        return new KeycloakSpringBootConfigResolver();
-    }
+//    @Bean
+//    public KeycloakConfigResolver KeycloakConfigResolver() {
+//        return new KeycloakSpringBootConfigResolver();
+//    }
 
     @Bean
     public RestTemplate restTemplate() {

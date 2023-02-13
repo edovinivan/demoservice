@@ -43,7 +43,7 @@ public class TestController {
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
         ResponseEntity<String> objectResponseEntity = restTemplate.postForEntity(
-                "http://172.18.0.3:8180/realms/kc-auth-realm/protocol/openid-connect/token",
+                "http://auth-service:8080/realms/kc-auth-realm/protocol/openid-connect/token",
                 //"http://localhost:8180/realms/kc-auth-realm/protocol/openid-connect/token",
                 new HttpEntity<>(loginDto.getCredentials(), headers), String.class);
 
